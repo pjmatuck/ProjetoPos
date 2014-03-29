@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html ng-app="alunoApp">
+<head>
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	<title>IMC</title>
+</head>
+<body>
+
+<div class="wrapper" ng-controller="alunoController">
+	<div class="jumbotron">
+  		<h1>Bom Corpo</h1>
+ 		 <p>Este um sistema para voce que gosta de manter o corpo em dia e ter controle sobre sua saude.</p>
+	</div>
+	<section class="form">
+		<h1>Novo Aluno</h1>
+		<form action="" method="POST" class="form-horizontal" 
+		 ng-submit="addAluno()">
+			
+			<div class="control-group">
+				<label class="control-label" for="nome">
+					Nome
+				</label>
+				<div class="controls">
+					<input id="aluno" ng-model="nome" required />
+				</div>
+			</div>
+
+			<div class="control-group">
+				<label class="control-label" for="Sexo">
+					Sexo
+				</label>
+				<div class="controls">
+					<input type="radio" ng-model="sexo" value="M" > Masculino<br/>
+					<input type="radio" ng-model="sexo" value="F">  Feminino<br/>
+				</div>
+			</div>
+			
+			<div class="control-group">
+				<label class="control-label" for="altura">
+					Altura
+				</label>
+				<div class="controls">
+					<input id="altura" ng-model="altura" required />
+				</div>
+			</div>
+
+			<div class="control-group">
+				<label class="control-label" for="peso">
+					Peso
+				</label>
+				<div class="controls">
+					<input id="peso" ng-model="peso" required />
+				</div>
+			</div>
+			
+			<div class="control-group">
+				<label class="control-label" for="imc">
+					Imc
+				</label>
+				<div class="controls">
+					<input id="imc" ng-model="imc" required />
+				</div>
+				<div class="controls">
+					<input id="msg" ng-model="msg" />
+				</div>
+			</div>
+			
+			<div class="buttons">
+				<input type="button" class="btn btn-sm btn-primary" ng-click="calculaImc()" value="Calcular IMC" />
+				<input type="submit" class="btn btn-sm btn-primary" value="Add" />
+			</div>
+		</form>
+	</section>
+
+	<section class="list">
+		<h2>Alunos' List</h2>
+		<table class="table table-bordered table-striped">
+			<tbody>
+				<tr ng-repeat="aluno in list">
+					<td>{{aluno.nome}}</td>
+					<td>{{aluno.altura | number:2}}</td>
+					<td>{{aluno.peso | number:2}}</td>
+					<td>{{aluno.sexo}}</td>
+					<td>{{aluno.imc}}</td>
+					<td>
+						<span class="btn btn-success">Edit</span>
+						<span class="btn btn-danger">Delete</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+</div>
+
+<script src="js/vendor/angular.min.js"></script>
+<script src="js/alunoApp.js"></script>
+<script src="js/controller/AlunoController.js"></script>
+
+</body>
+</html>

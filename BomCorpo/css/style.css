@@ -1,0 +1,22 @@
+
+.wrapper {
+	width: 600px;
+	margin: 20px auto;
+}
+
+.form-horizontal .control-label {
+	width: 50px;
+}
+
+.form-horizontal .controls {
+  margin-left: 60px;
+}
+
+table .btn {
+	margin-right: 4px;
+}
+
+h1
+{
+	text-align: center;
+}
