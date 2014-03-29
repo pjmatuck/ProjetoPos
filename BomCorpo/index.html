@@ -13,7 +13,7 @@
  		 <p>Este um sistema para voce que gosta de manter o corpo em dia e ter controle sobre sua saude.</p>
 	</div>
 	<section class="form">
-		<h1>Novo Aluno</h1>
+<!--		<h1>Novo Aluno</h1>
 		<form action="" method="POST" class="form-horizontal" 
 		 ng-submit="addAluno()">
 			
@@ -70,7 +70,65 @@
 				<input type="button" class="btn btn-sm btn-primary" ng-click="calculaImc()" value="Calcular IMC" />
 				<input type="submit" class="btn btn-sm btn-primary" value="Add" />
 			</div>
-		</form>
+		</form> -->
+		<form action="" method="POST" class="form-horizontal" ng-submit="addAluno()">
+  <fieldset>
+    <legend>Novo Aluno</legend>
+    <div class="form-group">
+      <label for="nome" class="col-lg-2 control-label">Nome</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" ng-model="nome"
+		id="aluno" placeholder="Nome" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Sexo</label>
+      <div class="col-lg-10">
+        <div class="radio">
+          <label>
+            <input type="radio" ng-model="sexo" name="optionsRadios" id="optionsRadios1" value="M" checked="">
+            Masculino
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" ng-model="sexo" name="optionsRadios" id="optionsRadios2" value="F">
+			Feminino
+          </label>
+        </div>
+      </div>
+    </div>
+	<div class="form-group">
+      <label for="altura" class="col-lg-2 control-label">Altura</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" ng-model="altura"
+		id="altura" placeholder="Altura" required>
+      </div>
+    </div>
+	<div class="form-group">
+      <label for="peso" class="col-lg-2 control-label">Peso</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" ng-model="peso"
+		id="peso" placeholder="Peso" required>
+      </div>
+    </div>
+	<div class="form-group">
+      <label for="imc" class="col-lg-2 control-label">IMC</label>
+      <div class="col-lg-10">
+        <input class="form-control" ng-model="imc" id="imc" placeholder="IMC" required>
+      </div>
+	  <!--<div class="col-lg-10">
+        <input class="form-control" ng-model="msg" id="msg" placeholder="IMC">
+      </div>-->
+    </div>
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <button type="button" class="btn btn-default" ng-click="calculaImc()">Calcular</button>
+        <button type="submit" class="btn btn-primary" value="Add">Adicionar</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
 	</section>
 
 	<section class="list">
