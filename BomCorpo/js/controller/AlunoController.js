@@ -19,9 +19,11 @@
  		return total;
  	}
 
+ 	var i = 1;
+
  	$scope.addAluno = function() {
  		var aluno = {};
- 		aluno.id = 0;
+ 		aluno.id = i++;
  		aluno.nome = $scope.nome;
  		aluno.altura = parseFloat($scope.altura);
  		aluno.peso = parseFloat($scope.peso);
@@ -32,6 +34,15 @@
  		$scope.nome = $scope.altura = $scope.peso = $scope.imc = "";
 		$scope.sexo = 'M';
  	}
+
+ 	$scope.deleteUser = function (id) {
+		for(i=0; i < $scope.list.length;i++){
+			if($scope.list[i].id == id){
+				//$scope.list.shift();
+				$scope.list.splice(i,1);
+			}
+		}
+	}
 
 	$scope.calculaImc = function(){
 		if($scope.peso == undefined || $scope.altura== undefined){

@@ -71,7 +71,7 @@
 				<input type="submit" class="btn btn-sm btn-primary" value="Add" />
 			</div>
 		</form> -->
-		<form action="" method="POST" class="form-horizontal" ng-submit="addAluno()">
+<form action="" method="POST" class="form-horizontal" ng-submit="addAluno()">
   <fieldset>
     <legend>Novo Aluno</legend>
     <div class="form-group">
@@ -132,18 +132,18 @@
 	</section>
 
 	<section class="list">
-		<h2>Alunos' List</h2>
+		<h3>Registros</h3>
 		<table class="table table-bordered table-striped">
 			<tbody>
 				<tr ng-repeat="aluno in list">
+					<td>{{aluno.id}}</td>
 					<td>{{aluno.nome}}</td>
 					<td>{{aluno.altura | number:2}}</td>
 					<td>{{aluno.peso | number:2}}</td>
 					<td>{{aluno.sexo}}</td>
 					<td>{{aluno.imc}}</td>
 					<td>
-						<span class="btn btn-success">Edit</span>
-						<span class="btn btn-danger">Delete</span>
+						<span><a ng-click="deleteUser(aluno.id)" class="btn btn-danger">Deletar</a></span>
 					</td>
 				</tr>
 			</tbody>
