@@ -8,6 +8,7 @@
  	];
 	
 	$scope.sexo = 'M';
+	$scope.idAluno = 0;
 
  	$scope.total = function() {
  		var total = 0;
@@ -22,17 +23,43 @@
  	var i = 1;
 
  	$scope.addAluno = function() {
- 		var aluno = {};
- 		aluno.id = i++;
- 		aluno.nome = $scope.nome;
- 		aluno.altura = parseFloat($scope.altura);
- 		aluno.peso = parseFloat($scope.peso);
- 		aluno.imc = $scope.imc;
- 		aluno.sexo = $scope.sexo;
- 		$scope.list.push(aluno);
+ 		if($scope.idAluno == 0){
+			var aluno = {};
+			aluno.id = i++;
+			aluno.nome = $scope.nome;
+			aluno.altura = parseFloat($scope.altura);
+			aluno.peso = parseFloat($scope.peso);
+			aluno.imc = $scope.imc;
+			aluno.sexo = $scope.sexo;
+			$scope.list.push(aluno);
+		}else{
+			$scope.list.forEach(function(aux) {
+				if(aux.id == $scope.idAluno){
+					aux.nome = $scope.nome;
+					aux.altura = parseFloat($scope.altura);
+					aux.peso = parseFloat($scope.peso);
+					aux.imc = $scope.imc;
+					aux.sexo = $scope.sexo;
+				}
+			});
+		}
 
+		$scope.idAluno = 0;
  		$scope.nome = $scope.altura = $scope.peso = $scope.imc = "";
 		$scope.sexo = 'M';
+ 	}
+ 	
+ 	$scope.editAluno = function(id) {
+		$scope.list.forEach(function(aux) {
+			if(aux.id == id){
+				$scope.idAluno = id;
+				$scope.nome = aux.nome;
+				$scope.altura = aux.altura;
+				$scope.peso = aux.peso;
+				$scope.imc = aux.imc;
+				$scope.sexo = aux.sexo;
+			}
+		});
  	}
 
  	$scope.deleteUser = function (id) {
