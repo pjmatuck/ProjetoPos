@@ -14,6 +14,7 @@
 	</div>
 	<section class="form">
 	<form action="" method="POST" class="form-horizontal" ng-submit="addAluno()">
+	<input id="idAluno" type="hidden" ng-model="idAluno" value="0" />
   <fieldset>
     <legend>Novo Aluno</legend>
     <div class="form-group">
@@ -82,6 +83,7 @@
 					<td>{{aluno.sexo}}</td>
 					<td>{{aluno.imc}}</td>
 					<td>
+						<span><a ng-click="editAluno(aluno.id)" class="btn btn-success">Editar</a></span>
 						<span><a ng-click="deleteUser(aluno.id)" class="btn btn-danger">Deletar</a></span>
 					</td>
 				</tr>
